@@ -1,0 +1,23 @@
+{
+  "name": "smartMenu",
+  "description": "",
+  "main": [
+    "dist/smartMenu.css",
+    "dist/smartMenu.min.js"
+  ],
+  "authors": [
+    "Marco Grignaffini"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/grigno/smartMenu",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
