@@ -9,11 +9,14 @@
     // Establish our default settings
     var settings = $.extend({
       prependTo: $('body'), // Prepend to item
-      menuSelector: '.smart-menu', // Selector for created menu
       hashSuffix: '', // eg: section
       scrollSpeed: 800,
-      offset: 80
-    }, options);
+      offset: 80,
+      onScrollStart: function () {
+      },
+      onScrollEnd: function () {
+      }
+    }, options, $.fn.smartMenu.defaults);
 
     var self = this;
     var items = [];
@@ -37,7 +40,7 @@
 
         //scroll spy
         self.each(function (i, e) {
-          if ($(document).scrollTop() - $(e).offset().top > - offset) {
+          if ($(document).scrollTop() - $(e).offset().top > -offset) {
             //console.log($(e).data('hash'))
             $(menuSelector).find('a').removeClass('active');
             var t = $(e).data('hash');
@@ -45,22 +48,22 @@
           }
         });
 
-        if($(window).scrollTop() + $(window).height() === $(document).height()) {
-           $(menuSelector).find('a').removeClass('active');
-           $(menuSelector).find('a').last().addClass('active');
-   }
+        if ($(window).scrollTop() + $(window).height() === $(document).height()) {
+          $(menuSelector).find('a').removeClass('active');
+          $(menuSelector).find('a').last().addClass('active');
+        }
 
       }
     });
 
-    $(document).on('click',  menuSelector + ' a', function (e) {
-      var hash = $(this)[0].hash;
+    $(document).on('click', menuSelector + ' a', function (e) {
+      var item = $(this);
+
+      settings.onScrollStart.call($(this));
 
       if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
         e.preventDefault();
-        $(document).trigger('hashpressed', [$(this)[0]]);
-
-        scrollPage(hash);
+        scrollPage(item);
       }
     });
 
@@ -74,16 +77,25 @@
       }
     });
 
-    var scrollPage = function(hash) {
-      var hashName = hash || location.hash;
+    var scrollPage = function (item) {
+      var hashName;
+      if (!item){
+        hashName = location.hash;
+      }else{
+        hashName = item[0].hash
+      }
+
+
+
       var hashValue = hashName.slice(1);
 
       if (hashValue.length && hashValue.substr(0, hashSuffix.length) === hashSuffix) {
         var target = $('[data-hash=' + hashValue + ']');
         $('html, body').animate({
-          scrollTop: target.offset().top - offset + 30
+          scrollTop: target.offset().top - offset + 40
         }, scrollSpeed, function () {
           location.hash = hashName;
+          settings.onScrollEnd.call(item);
         });
       }
     };
@@ -112,5 +124,10 @@
     return build(items);
 
   }
+
+
+  $.fn.smartMenu.defaults = {
+    menuSelector: '.smart-menu'
+  };
 
 }(jQuery));

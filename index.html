@@ -205,7 +205,14 @@
 <script src="dist/smartMenu.js"></script>
 <script>
   $(function () {
-    $('[data-smart-menu]').smartMenu();
+    $('[data-smart-menu]').smartMenu({
+      'onScrollStart': function () {
+        console.log('Scroll started', this);
+      },
+      'onScrollEnd': function () {
+        console.log('Scroll ended', this);
+      }
+    });
   });
 </script>
 </body>
