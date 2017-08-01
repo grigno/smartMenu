@@ -1,9 +1,9 @@
 {
-  "name": "smartMenu",
+  "name": "smart-menu",
   "description": "",
   "main": [
     "dist/smartMenu.css",
-    "dist/smartMenu.min.js"
+    "dist/smartMenu.js"
   ],
   "authors": [
     "Marco Grignaffini"
