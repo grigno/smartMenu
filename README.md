@@ -3,12 +3,18 @@
 A simple runtime menu to navigate through page anchors
 
 ### Demo
-[here](https://grigno.github.io/smartMenu/)
+[HERE](https://grigno.github.io/smartMenu/)
 
 ### Install
 ```
 bower install smartMenu --save
 ```
+
+### Dependencies
+```
+"jquery": ">= 2.2.0"
+```
+
 
 ### Html DOM
 ```html
@@ -37,6 +43,6 @@ $(function(){
 
 Option         | default          |   |
 --------------------|------------------|-----------------------|
-prependTo				| 'body'   | Element to prepend the menu  |
+prependTo				| $('body')   | jquery selector: Element to prepend smartMenu  |
 scrollSpeed|800|Page scroll speed
 offset|80|Scroll offset

@@ -8,7 +8,7 @@
   $.fn.smartMenu = function (options) {
     // Establish our default settings
     var settings = $.extend({
-      prependTo: 'body', // Prepend to item
+      prependTo: $('body'), // Prepend to item
       menuSelector: '.smart-menu', // Selector for created menu
       hashSuffix: '', // eg: section
       scrollSpeed: 800,
@@ -21,6 +21,7 @@
     var hashSuffix = settings.hashSuffix;
     var scrollSpeed = settings.scrollSpeed;
     var offset = settings.offset;
+    var prependTo = settings.prependTo;
 
     $(window).on('scroll', function () {
       if (items.length) {
@@ -104,7 +105,7 @@
         });
         html += '</ul></div></div></div>';
 
-        $(settings.prependTo).prepend(html);
+        $(prependTo).prepend(html);
       }
     };
 
