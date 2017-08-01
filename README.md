@@ -20,7 +20,7 @@ bower install smartMenu --save
 
 
 
-### initialization
+### Initialization
 
 ```javascript
 $(function(){
