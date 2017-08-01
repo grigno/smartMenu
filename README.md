@@ -46,3 +46,5 @@ Option         | default          |   |
 prependTo				| $('body')   | jquery selector: Element to prepend smartMenu  |
 scrollSpeed|800|Page scroll speed
 offset|80|Scroll offset
+onScrollStart|function(){}|Callback on scroll start
+onScrollEnd|function(){}|Callback on scroll end
