@@ -1,6 +1,6 @@
 # smartMenu
 
-A simple runtime menu to navigate trhought page anchors
+A simple runtime menu to navigate through page anchors
 
 ### Install
 ```
@@ -20,7 +20,7 @@ bower install smartMenu --save
 
 
 
-### Initialise
+### initialization
 
 ```javascript
 $(function(){
@@ -35,6 +35,5 @@ $(function(){
 Option         | default          |   |
 --------------------|------------------|-----------------------|
 prependTo				| 'body'   | Element to prepend the menu  |
-hashSuffix|''|Attach a suffix to navigation hash
 scrollSpeed|800|Page scroll speed
 offset|80|Scroll offset
