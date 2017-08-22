@@ -85,8 +85,6 @@
         hashName = item[0].hash
       }
 
-
-
       var hashValue = hashName.slice(1);
 
       if (hashValue.length && hashValue.substr(0, hashSuffix.length) === hashSuffix) {
